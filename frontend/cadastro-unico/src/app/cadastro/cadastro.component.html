@@ -1,0 +1,47 @@
+
+<div>
+  <h2>Cadastro de Cliente</h2>
+  <form *ngIf="clienteForm" [formGroup]="clienteForm" (ngSubmit)="salvarCliente()">
+    <label for="nome">Nome:</label>
+    <input type="text" id="nome" formControlName="nome">
+    <div *ngIf="clienteForm.get('nome')?.hasError('required') && clienteForm.get('nome')?.touched">
+      O nome é obrigatório.
+    </div>
+    <div *ngIf="clienteForm.get('nome')?.hasError('minlength') && clienteForm.get('nome')?.touched">
+      O nome deve ter pelo menos 11 caracteres.
+    </div>
+    <div *ngIf="clienteForm.get('nome')?.hasError('nomeRedundante')">
+      Este nome já está em uso. Escolha um nome diferente.
+    </div>
+    <label for="cpf">CPF:</label>
+    <input type="text" id="cpf" formControlName="cpf">
+    <div *ngIf="clienteForm.get('cpf')?.hasError('required') && clienteForm.get('cpf')?.touched">
+      O CPF é obrigatório.
+    </div>
+    <div *ngIf="clienteForm.get('cpf')?.hasError('cpfInvalido')">
+      O CPF informado é inválido.
+    </div>
+    <label for="endereco">Endereço:</label>
+    <input type="text" id="endereco" formControlName="endereco">
+    <div *ngIf="clienteForm.get('endereco')?.hasError('required') && clienteForm.get('endereco')?.touched">
+      O endereço é obrigatório.
+    </div>
+    <label for="bairro">Bairro:</label>
+    <input type="text" id="bairro" formControlName="bairro">
+    <div *ngIf="clienteForm.get('bairro')?.hasError('required') && clienteForm.get('bairro')?.touched">
+      O bairro é obrigatório.
+    </div>
+    <div formArrayName="telefones">
+      <h3>Telefones:</h3>
+      <div *ngFor="let telefone of telefones.controls; let i = index">
+        <div [formGroupName]="i">
+          <label for="numero">Número:</label>
+          <input type="text" id="numero" formControlName="numero">
+          <!-- Adicione aqui as validações específicas para o número de telefone, se necessário -->
+        </div>
+      </div>
+      <button type="button" (click)="adicionarTelefone()">Adicionar Telefone</button>
+    </div>
+    <button type="submit" [disabled]="clienteForm.invalid">Salvar</button>
+  </form>
+</div>
