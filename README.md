@@ -6,7 +6,7 @@ Este é um projeto simples que demonstra um sistema de cadastro de clientes usan
 
 ### Requisitos
 
-- Java JDK 8 ou superior
+- Java JDK 17 
 - Maven
 
 ### Passos para Execução
@@ -37,6 +37,7 @@ O servidor estará disponível em http://localhost:8080.
 
 - Node.js
 - npm (Node Package Manager)
+- Angular CLI
 
 ### Passos para Execução
 
@@ -49,6 +50,10 @@ O servidor estará disponível em http://localhost:8080.
 2. Instale as dependências:
 
     ```bash
+    npm i @angular/cli
+    ```
+
+    ```bash
     npm install
     ```
 
@@ -58,7 +63,7 @@ O servidor estará disponível em http://localhost:8080.
     npm start
     ```
 
-O frontend estará disponível em http://localhost:4200.
+O frontend estará disponível em http://localhost:4200/cadastro.
 
 ## Uso
 
