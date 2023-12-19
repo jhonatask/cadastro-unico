@@ -6,6 +6,10 @@ import java.util.List;
 import java.util.regex.Pattern;
 
 public class TelefoneValidator {
+
+    private TelefoneValidator() {
+        throw new IllegalStateException("Utility class");
+    }
     public static void validarTelefone(List<TelefoneDTO> telefones) {
         for (TelefoneDTO telefoneDTO : telefones) {
             validarTelefoneNulo(telefoneDTO);
@@ -19,7 +23,7 @@ public class TelefoneValidator {
     }
 
     private static void validarCaracteresDiferentes(TelefoneDTO telefoneDTO) {
-        String numero = telefoneDTO.getNumero().replaceAll("[^0-9]", "");
+        String numero = telefoneDTO.getNumero().replaceAll("\\D", "");
         if (Pattern.matches("^(.)\\1*$", numero)) {
             throw new IllegalArgumentException("Os caracteres do telefone não podem ser todos iguais.");
         }

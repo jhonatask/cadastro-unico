@@ -17,7 +17,7 @@ public class TelefoneDTO {
     private Long id;
 
     @NotBlank(message = "O telefone não pode ser nulo ou vazio")
-    @Pattern(regexp = "^(?!([0-9])\\1+$)\\d{10,}$", message = "Telefone inválido")
+    @Pattern(regexp = "^(?!(\\d)\\1+$)\\d{10,}$", message = "Telefone inválido")
     private String numero;
 
     public TelefoneDTO(String number) {

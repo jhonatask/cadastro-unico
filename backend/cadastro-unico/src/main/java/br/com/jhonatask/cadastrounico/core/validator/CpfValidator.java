@@ -3,7 +3,7 @@ package br.com.jhonatask.cadastrounico.core.validator;
 public class CpfValidator {
     public static boolean validarCPF(String cpf) {
 
-        cpf = cpf.replaceAll("[^0-9]", "");
+        cpf = cpf.replaceAll("\\D", "");
 
         if (cpf.length() != 11) {
             return false;

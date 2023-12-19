@@ -19,7 +19,7 @@ public class Telefone {
     private Long id;
 
     @NotBlank(message = "O telefone não pode ser nulo ou vazio")
-    @Pattern(regexp = "^(?!([0-9])\\1+$)\\d{10,}$", message = "Telefone inválido")
+    @Pattern(regexp = "^(?!(\\d)\\1+$)\\d{10,}$", message = "Telefone inválido")
     @Column(nullable = false)
     private String numero;
 

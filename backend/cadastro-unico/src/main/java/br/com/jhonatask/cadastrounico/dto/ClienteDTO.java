@@ -20,7 +20,7 @@ public class ClienteDTO {
     private String nome;
 
     @NotBlank(message = "O CPF não pode ser nulo ou vazio")
-    @Pattern(regexp = "^[0-9]{11}$", message = "CPF inválido")
+    @Pattern(regexp = "^\\d{11}$", message = "CPF inválido")
     private String cpf;
 
     private String endereco;

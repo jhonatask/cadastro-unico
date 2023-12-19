@@ -5,6 +5,8 @@ import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+
+
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Pattern;
 
@@ -25,7 +27,7 @@ public class Cliente {
     private String nome;
 
     @NotBlank(message = "O CPF não pode ser nulo ou vazio")
-    @Pattern(regexp = "^[0-9]{11}$", message = "CPF inválido")
+    @Pattern(regexp = "^\\d{11}$", message = "CPF inválido")
     @Column(nullable = false, unique = true)
     private String cpf;
 

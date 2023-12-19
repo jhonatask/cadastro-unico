@@ -7,7 +7,6 @@ import br.com.jhonatask.cadastrounico.entitys.Cliente;
 import br.com.jhonatask.cadastrounico.entitys.Telefone;
 import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
-import org.mapstruct.Mappings;
 import org.springframework.stereotype.Component;
 
 import java.util.List;
@@ -17,10 +16,9 @@ import java.util.stream.Collectors;
 @Mapper(componentModel = "spring")
 public interface ClienteMapperDTO {
 
-    @Mappings({
-            @Mapping(target = "telefones", expression = "java(getTelefones(entity))"),
 
-    })
+    @Mapping(target = "telefones", expression = "java(getTelefones(entity))")
+
     ClienteDTO clienteToClienteDTO(Cliente entity);
     Cliente clienteDTOtoCliente(ClienteDTO entity);
 
